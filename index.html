@@ -1,0 +1,277 @@
+<title>Ortam</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;500;600;700;800&family=Press+Start+2P&display=swap">
+<style>
+/* Layout: gece moru bir sayfa. Hero solda metin sagda telefon, altinda oyun izgarasi,
+   sonra ekran goruntuleri bandi. Renkler ve yazi tipleri uygulamanin kendi sisteminden. */
+:root{
+  --bg:#190926; --bg-2:#241036; --panel:#2E1544; --line:#3F2159;
+  --fg:#F7F0FF; --muted:#B49BD0; --gold:#FFB638; --hot:#FF8733;
+  --display:'Press Start 2P', ui-monospace, monospace;
+  --body:'Baloo Bhaijaan 2', 'Trebuchet MS', system-ui, sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--fg);
+  font-family:var(--body); font-size:17px; line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{
+  width:100%; max-width:1080px; margin-inline:auto;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));
+  padding-right:max(16px, env(safe-area-inset-right, 0px));
+}
+a{color:inherit}
+img{max-width:100%; display:block}
+
+/* ---- hero ---- */
+.hero{
+  background:
+    radial-gradient(900px 520px at 78% -8%, rgba(171,66,230,.42), transparent 62%),
+    radial-gradient(700px 440px at 6% 8%, rgba(255,135,51,.17), transparent 60%),
+    linear-gradient(180deg, var(--bg-2), var(--bg));
+  border-bottom:1px solid var(--line);
+}
+.hero .wrap{padding-block:clamp(36px,7vw,76px)}
+.hero-grid{display:grid; grid-template-columns:1.15fr .85fr; gap:clamp(24px,5vw,56px); align-items:center}
+.wordmark{width:min(300px,62vw); margin-bottom:22px}
+h1{
+  font-size:clamp(28px,4.4vw,46px); line-height:1.18; font-weight:800;
+  margin:0 0 16px; text-wrap:balance; letter-spacing:-.01em;
+}
+.lede{font-size:clamp(17px,2vw,20px); color:var(--muted); margin:0 0 28px; max-width:46ch}
+.lede b{color:var(--fg); font-weight:600}
+
+.cta{display:flex; flex-wrap:wrap; gap:14px; align-items:center}
+.btn{
+  display:inline-flex; align-items:center; gap:11px; text-decoration:none;
+  background:var(--fg); color:#1A0A28; font-weight:700; font-size:17px;
+  padding:13px 22px; border-radius:999px; transition:transform .15s ease, box-shadow .15s ease;
+  box-shadow:0 10px 30px rgba(0,0,0,.42);
+}
+.btn:hover{transform:translateY(-2px); box-shadow:0 14px 36px rgba(0,0,0,.5)}
+.btn svg{width:21px; height:21px; flex:none}
+.free{font-size:15px; color:var(--muted)}
+
+.phone{
+  justify-self:center; border-radius:30px; overflow:hidden;
+  border:1px solid var(--line); box-shadow:0 28px 70px rgba(0,0,0,.6);
+  rotate:2.2deg;
+}
+
+/* ---- rakamlar ---- */
+.stats{border-bottom:1px solid var(--line); background:var(--bg-2)}
+.stats .wrap{
+  padding-block:22px; display:flex; flex-wrap:wrap; gap:14px 44px;
+  justify-content:center; text-align:center;
+}
+.stat b{
+  display:block; font-family:var(--display); font-size:15px;
+  color:var(--gold); letter-spacing:.02em; margin-bottom:7px;
+}
+.stat span{font-size:15px; color:var(--muted)}
+
+/* ---- oyunlar ---- */
+section .wrap{padding-block:clamp(44px,7vw,78px)}
+.eyebrow{
+  font-family:var(--display); font-size:11px; letter-spacing:.14em;
+  color:var(--gold); margin:0 0 12px;
+}
+h2{font-size:clamp(23px,3.2vw,32px); font-weight:800; margin:0 0 10px; text-wrap:balance}
+.sub{color:var(--muted); margin:0 0 30px; max-width:58ch}
+
+.games{display:grid; grid-template-columns:repeat(4,1fr); gap:16px}
+.game{
+  border-radius:22px; padding:20px 18px 22px; min-width:0;
+  background:linear-gradient(160deg, var(--a), var(--b));
+  border:1px solid rgba(255,255,255,.1);
+  display:flex; flex-direction:column; gap:9px;
+}
+.game img{width:62px; height:62px; margin-bottom:3px}
+.game h3{margin:0; font-size:19px; font-weight:700; line-height:1.25}
+.game p{margin:0; font-size:15px; line-height:1.45; color:rgba(255,255,255,.84)}
+.tag{
+  align-self:flex-start; margin-top:4px; font-size:12px; font-weight:700;
+  background:rgba(0,0,0,.3); color:#fff; padding:3px 9px; border-radius:999px;
+  letter-spacing:.03em;
+}
+.g-sahtekar{--a:#7D54AE; --b:#36244A}
+.g-quiz    {--a:#68AE54; --b:#294A24}
+.g-charades{--a:#AE5466; --b:#C9820A}
+.g-couples {--a:#AE5466; --b:#4A2426}
+.g-secret  {--a:#B05466; --b:#A32480}
+.g-whoami  {--a:#AB42E6; --b:#54177A}
+.g-kimdaha {--a:#5487AE; --b:#244A4A}
+.g-bottle  {--a:#FF8733; --b:#8C450D}
+
+/* ---- nasil oynanir ---- */
+.how{background:var(--bg-2); border-block:1px solid var(--line)}
+.steps{display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:26px}
+.step{background:var(--panel); border:1px solid var(--line); border-radius:18px; padding:20px; min-width:0}
+.step b{
+  display:block; font-family:var(--display); font-size:13px;
+  color:var(--gold); margin-bottom:11px;
+}
+.step p{margin:0; color:var(--muted); font-size:15.5px; line-height:1.5}
+.step p strong{color:var(--fg); font-weight:600}
+
+/* ---- ekran goruntuleri ---- */
+.shots{display:flex; gap:clamp(20px,4vw,40px); flex-wrap:wrap; justify-content:center; margin-top:30px}
+.shots figure{margin:0; width:290px; max-width:100%; display:flex; flex-direction:column; gap:14px}
+.shots img{
+  width:100%; border-radius:24px; border:1px solid var(--line);
+  box-shadow:0 20px 50px rgba(0,0,0,.5);
+}
+.shots figcaption{color:var(--muted); font-size:15px; line-height:1.45; text-align:center}
+
+/* ---- alt ---- */
+footer{border-top:1px solid var(--line); background:var(--bg-2)}
+footer .wrap{padding-block:30px; display:flex; flex-wrap:wrap; gap:12px 28px; align-items:center; justify-content:space-between}
+footer p{margin:0; color:var(--muted); font-size:14.5px}
+footer a{color:var(--fg); text-decoration:none; border-bottom:1px solid var(--line)}
+footer a:hover{border-bottom-color:var(--gold)}
+:where(a,.btn):focus-visible{outline:2px solid var(--gold); outline-offset:3px; border-radius:6px}
+
+@media (max-width:880px){
+  .games{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:1fr}
+}
+@media (max-width:720px){
+  .hero-grid{grid-template-columns:1fr}
+  .phone{rotate:0deg; width:min(300px,76vw); margin-top:8px}
+}
+@media (max-width:430px){
+  .games{grid-template-columns:1fr}
+  .shots figure{width:min(290px,78vw)}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <img class="wordmark" src="img/wordmark.png" alt="Ortam">
+      <h1>Masanın ortasına bir telefon koy, gerisi kendiliğinden gelsin.</h1>
+      <p class="lede">Sekiz parti oyunu, tek cihaz. Hesap yok, internet yok, kurulum yok. <b>Telefonu sırayla verin, yeter.</b></p>
+      <div class="cta">
+        <a class="btn" href="https://apps.apple.com/tr/app/ortam-party-games/id6811170129">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.37 12.76c.02-2.2 1.8-3.26 1.88-3.31-1.02-1.5-2.61-1.7-3.18-1.73-1.35-.14-2.64.8-3.33.8-.69 0-1.75-.78-2.87-.76-1.48.02-2.84.86-3.6 2.18-1.53 2.66-.39 6.6 1.1 8.76.73 1.06 1.6 2.25 2.75 2.2 1.1-.04 1.52-.71 2.85-.71 1.33 0 1.71.71 2.87.69 1.19-.02 1.94-1.08 2.67-2.14.84-1.23 1.19-2.42 1.21-2.48-.03-.01-2.32-.89-2.35-3.5zM14.2 6.3c.6-.74 1.01-1.76.9-2.78-.87.04-1.93.58-2.56 1.31-.56.65-1.05 1.69-.92 2.69.97.07 1.96-.49 2.58-1.22z"/></svg>
+          App Store'dan indir
+        </a>
+        <span class="free">Ücretsiz · iPhone · 17+</span>
+      </div>
+    </div>
+    <img class="phone" src="img/home.png" width="357" height="620" alt="Ortam ana ekranı: oyunlar ızgarası">
+  </div>
+</header>
+
+<div class="stats">
+  <div class="wrap">
+    <div class="stat"><b>8</b><span>oyun</span></div>
+    <div class="stat"><b>3-12</b><span>kişi</span></div>
+    <div class="stat"><b>2000+</b><span>soru ve kelime</span></div>
+    <div class="stat"><b>0</b><span>internet gereksinimi</span></div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">OYUNLAR</p>
+    <h2>Masa kalabalıksa sekiz seçenek var</h2>
+    <p class="sub">Hepsi aynı mantıkla çalışıyor: telefon elden ele dolaşıyor, kimse ekranı başkasına göstermiyor.</p>
+
+    <div class="games">
+      <article class="game g-sahtekar">
+        <img src="img/sahtekar.png" alt="">
+        <h3>Sahtekar</h3>
+        <p>Sahtekar olduğunu belli etmeden kelimeyi anlat.</p>
+      </article>
+      <article class="game g-quiz">
+        <img src="img/quizNight.png" alt="">
+        <h3>Quiz Gecesi</h3>
+        <p>Soru havada, cevaplar kağıtta. Kim daha çok biliyor?</p>
+      </article>
+      <article class="game g-charades">
+        <img src="img/charades.png" alt="">
+        <h3>Sessiz Sinema</h3>
+        <p>Yılların oyunu, ama bu sefer filmi biz seçiyoruz.</p>
+      </article>
+      <article class="game g-couples">
+        <img src="img/couples.png" alt="">
+        <h3>Çift Oyunu</h3>
+        <p>Birbirinizi ne kadar tanıyorsunuz? Öğrenme vakti.</p>
+      </article>
+      <article class="game g-secret">
+        <img src="img/secret.png" alt="">
+        <h3>Gizli Kelime</h3>
+        <p>Kelimen sende kalsın, onu karşındakine söylet.</p>
+      </article>
+      <article class="game g-whoami">
+        <img src="img/whoAmI.png" alt="">
+        <h3>Ben Kimim?</h3>
+        <p>Telefonu alnına tut, sorularla kim olduğunu bul.</p>
+      </article>
+      <article class="game g-kimdaha">
+        <img src="img/kimDaha.png" alt="">
+        <h3>Kim Daha?</h3>
+        <p>Herkes bir kişiyi seçer. Asıl mesele: neden o?</p>
+        <span class="tag">YENİ</span>
+      </article>
+      <article class="game g-bottle">
+        <img src="img/bottle.png" alt="">
+        <h3>Şişe Çevirme</h3>
+        <p>Doğruluk mu, cesaret mi? Çarkı çevirin, yanıtlayın.</p>
+        <span class="tag">YENİ</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="how">
+  <div class="wrap">
+    <p class="eyebrow">NASIL ÇALIŞIR</p>
+    <h2>Kurulum diye bir şey yok</h2>
+    <div class="steps">
+      <div class="step">
+        <b>1. OYUNU SEC</b>
+        <p>Ana ekrandan birini aç. <strong>Hiçbiri kilitli değil</strong>, hesap açman da gerekmiyor.</p>
+      </div>
+      <div class="step">
+        <b>2. ISIMLERI YAZ</b>
+        <p>Masadakilerin adını gir. Oyun <strong>sırayı ve puanı</strong> kendi takip ediyor.</p>
+      </div>
+      <div class="step">
+        <b>3. TELEFONU DOLASTIR</b>
+        <p>Sıra kimdeyse telefon onda. <strong>İnternet gerekmiyor</strong>, uçak modunda da çalışır.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">UYGULAMADAN</p>
+    <h2>Şişe Çevirme yeni geldi</h2>
+    <p class="sub">Çarkı masadakilerin sayısına göre bölüyor. Şişe kime bakarsa doğruluk ya da cesaret seçiyor, herkesin bir pas hakkı var.</p>
+    <div class="shots">
+      <figure>
+        <img src="img/wheel.png" width="311" height="620" alt="Şişe Çevirme: çark oyuncu sayısına bölünmüş, şişe Ece'yi gösteriyor">
+        <figcaption>Çark masadakilere bölünüyor. Şişe kimde durursa sıra onda.</figcaption>
+      </figure>
+      <figure>
+        <img src="img/task.png" width="311" height="620" alt="Doğruluk sorusu kartı ve pas geçme hakkı">
+        <figcaption>Doğruluk ya da cesaret. Beğenmediysen bir pas hakkın var.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>2026 Alihan Gören · Ortam: Party Games</p>
+    <p><a href="https://complex-property-afa.notion.site/Ortam-Destek-3d8d998769d78039b3f9c7ad">Destek ve iletişim</a></p>
+  </div>
+</footer>
